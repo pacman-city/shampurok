@@ -7,6 +7,6 @@ export default function(id, alt, title, price) {
                 <button class="link" data-card=${id}>подробнее</button>
                 <span>${price}</span>
             </div>
-            <button class="btn-border data-callback">оформить заказ</button>
+            <button class="btn-border" data-callback>оформить заказ</button>
         </div>`;
 }

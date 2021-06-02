@@ -35,6 +35,10 @@
         &.open {
             transform: translate(0);
 
+            .header__menu {
+                display: block;
+            }
+
             .header__socials {
                 transform: translate(0);
             }
@@ -42,6 +46,7 @@
     }
 
     &__menu {
+        display: none;
         height: 100%;
         overflow-y: auto;
     }

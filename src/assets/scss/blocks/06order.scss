@@ -1,8 +1,8 @@
-.quiz {
+.order {
 
     &__wrapper {
         min-height: 458px;
-        background-image: url(../images/sectionImages/quiz.jpg);
+        background-image: url(../images/sectionImages/order.jpg);
         background-size: contain;
         background-position: left top;
         background-repeat: no-repeat;
@@ -96,7 +96,7 @@
     @media screen and (max-width: $phoneWidth) {
         &__wrapper {
             padding: 40px 15px;
-            background: #000 no-repeat left bottom / 400px url(../images/sectionImages/quiz.jpg);
+            background: #000 no-repeat left bottom / 400px url(../images/sectionImages/order.jpg);
         }
 
         h2 {

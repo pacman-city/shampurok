@@ -23,7 +23,9 @@ export default class {
     this.menuNavButtons.forEach((button, i) => {
       button.addEventListener('click', () => {
         this.close();
-        this.targetEl[i].scrollIntoView();
+        this.targetEl[i].scrollIntoView({
+          block: 'center'
+        });
       });
     })
     /////////////////////////////////______ end scroll to section
@@ -46,19 +48,12 @@ export default class {
 
   open() {
     this.menu.classList.add('open');
-
     this.menuSocialButtons.forEach(btn => btn.setAttribute('tabindex', -1));
-    this.menuCloseButton.setAttribute('tabindex', 0);
-    this.menuNavButtons.forEach(btn => btn.setAttribute('tabindex', 0));
   }
 
   close() {
     document.body.style.overflow = "";
     this.menu.classList.remove('open');
-
-
     this.menuSocialButtons.forEach(btn => btn.setAttribute('tabindex', 0));
-    this.menuCloseButton.setAttribute('tabindex', -1);
-    this.menuNavButtons.forEach(btn => btn.setAttribute('tabindex', -1));
   };
 };

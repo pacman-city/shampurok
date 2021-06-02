@@ -59,6 +59,11 @@ button {
     }
 }
 
+.btn-solid:focus,
+.btn-border:focus {
+    box-shadow: 4px 6px 4px -0.5px #0004;
+}
+
 .input-text {
     height: 70px;
     margin-top: 10px;
@@ -114,30 +119,66 @@ button {
 }
 
 .radio {
-    position: relative;
-    height: 100%;
-    width: 100%;
     cursor: pointer;
-
-    input {
-        display: none;
-    }
+    display: inline-block;
+    user-select: none;
+    position: relative;
+    @extend .no-select;
 
     span {
-        padding-left: 35px;
+        display: inline-block;
+        vertical-align: middle;
     }
 
-    span::before {
-        content: '\e912';
+    input:focus+svg {
+        box-shadow: 0 0 1px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+    }
+
+    svg {
+        fill: none;
+        vertical-align: middle;
+
+        circle {
+            stroke-width: 1;
+            stroke: $accentColor;
+        }
+
+        path {
+            stroke: $accentColor;
+
+            &.inner {
+                stroke-width: 6;
+                stroke-dasharray: 19;
+                stroke-dashoffset: 19;
+            }
+
+            &.outer {
+                stroke-width: 2;
+                stroke-dasharray: 57;
+                stroke-dashoffset: 57;
+            }
+        }
+    }
+
+    input[type="radio"] {
+        opacity: 0;
+        appearance: none;
+        z-index: 1;
+        height: 10px;
         position: absolute;
-        left: 0;
-        top: 2px;
-        font-family: 'icomoon';
-        font-size: 15px;
-        color: $accentColor;
+        cursor: pointer;
     }
 
-    input:checked~span::before {
-        content: '\e913';
+    input:checked+svg path {
+        transition: all .15s ease-out;
+
+        &.inner {
+            stroke-dashoffset: 38;
+        }
+
+        &.outer {
+            stroke-dashoffset: 1px;
+        }
     }
 }

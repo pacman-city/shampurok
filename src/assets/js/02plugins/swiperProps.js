@@ -8,6 +8,7 @@ export const KITprops = {
   speed: 400,
   slidesPerView: 'auto',
   spaceBetween: 30,
+  noSwipingSelector: 'button',
   pagination: {
     el: '#sliderORDpag',
     type: 'fraction',
@@ -42,9 +43,10 @@ export const KITprops = {
 
 export const FBprops = {
   direction: 'horizontal',
-  slidesPerView: 1.5,
+  slidesPerView: 1.3,
   spaceBetween: 30,
   speed: 400,
+  slideToClickedSlide: true,
   pagination: {
     el: '#sliderFBpag',
     type: 'fraction',
@@ -65,12 +67,30 @@ export const FBprops = {
     dragSize: 200,
   },
   breakpoints: {
+    1400: {
+      slidesPerView: 4.2,
+      spaceBetween: 50,
+    },
     1280: {
       slidesPerView: 4,
       spaceBetween: 50,
     },
+    1024: {
+      slidesPerView: 3.6,
+    },
+    768: {
+      slidesPerView: 3.4,
+      spaceBetween: 45,
+      slideToClickedSlide: false,
+    },
+    640: {
+      slidesPerView: 3.2,
+    },
     480: {
-      slidesPerView: 3.5,
+      slidesPerView: 2.5,
+    },
+    320: {
+      slidesPerView: 2.2,
       spaceBetween: 30,
     },
   }
@@ -78,7 +98,7 @@ export const FBprops = {
 
 export const CUBICLEprops = {
   effect: 'cube',
-  speed: 1000,
+  speed: 500,
   allowTouchMove: false,
   cubeEffect: {
     shadow: true,
@@ -86,14 +106,19 @@ export const CUBICLEprops = {
     shadowOffset: 60,
     shadowScale: 0.9,
   },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
   zoom: {
     maxRatio: 2,
   },
   pagination: {
-    el: "#thumbnails",
+    el: ".swiper-pagination",
+    type: 'bullets',
     clickable: true,
     renderBullet: function(index, className) {
-      return `<img class=${className} src=${this.imagesToLoad[index].getAttribute('src')} alt="tumbnail">`;
+      return `<span class="${className} no-select"><img src=${this.imagesToLoad[index].getAttribute('src')} alt="tumbnail"></span>`;
     },
   },
 }
